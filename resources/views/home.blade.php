@@ -21,7 +21,7 @@
 
 <ul>
 
-@foreach ($games as $game)
+@foreach ($active_games as $game)
 
     <li><a href="/games/{{$game->id}}">Game {{ $game->id }} </a></li>
 
