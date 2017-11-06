@@ -1,5 +1,12 @@
 <?php
 
+#For Postgres on Heroku
+$url = parse_url(getenv("DATABASE_URL"));
+$dbhost = $url['host'];
+$dbuser = $url['user'];
+$dbpass = $url['pass'];
+$dbport = $url['port'];
+$dbname = substr($url['path'], 1);
 return [
 
     /*
@@ -13,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
