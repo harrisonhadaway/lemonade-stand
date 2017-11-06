@@ -24,7 +24,14 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        $game = new \App\Game;
+        $game->user_id = \Auth::user()->id;
+        $game ->save();
+
+        // $games = \App\Game::all();
+        // return view('home', compact('games'));
+
+        return redirect()->route('home');
     }
 
     /**
@@ -46,7 +53,8 @@ class GameController extends Controller
      */
     public function show($id)
     {
-        //
+        $game = \App\Game::find($id);
+        return $game;
     }
 
     /**
